@@ -1,0 +1,12 @@
+fastapi>=0.95.0
+uvicorn[standard]>=0.22.0
+flatlib>=0.2.3
+pyswisseph==2.08.00-1
+python-docx>=0.8.11
+reportlab>=3.6.12
+pydantic>=1.10.2
+requests>=2.31.0
+python-dotenv>=1.0.0
+typing-extensions>=4.7.0
+sqlmodel>=0.0.8
+openai>=0.27.0

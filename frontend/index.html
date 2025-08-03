@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JyotishAI Diagnostics</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React and ReactDOM via CDN -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Babel to compile JSX on the fly -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <div id="root" class="container mx-auto p-4"></div>
+    <script type="text/babel">
+        const MODULE_OPTIONS = [
+            { value: 'Personality', label: 'Personality' },
+            { value: 'Career', label: 'Career' },
+            { value: 'Education', label: 'Education' },
+            { value: 'Marriage', label: 'Marriage' },
+            { value: 'Sexuality', label: 'Sexuality' },
+            { value: 'Body type', label: 'Body type' },
+            { value: 'Karma & Soul Path', label: 'Karma & Soul Path' },
+            { value: 'Foreign Travel', label: 'Foreign Travel' },
+            { value: 'Spirituality', label: 'Spirituality' },
+            { value: 'Ashtakavarga', label: 'Ashtakavarga' },
+            { value: 'Dasha/Transit', label: 'Dasha/Transit' },
+            { value: 'Psychological Vulnerability', label: 'Psychological Vulnerability' },
+            { value: 'Health', label: 'Health' },
+            { value: 'Chronic Disease Indicators', label: 'Chronic Disease Indicators' },
+            { value: 'Compatibility', label: 'Compatibility' },
+        ];
+
+        function App() {
+            const [form, setForm] = React.useState({
+                name: '',
+                dob: '',
+                tob: '',
+                location: '',
+                offset: '',
+                modules: [],
+                secondName: '',
+                secondDob: '',
+                secondTob: '',
+                secondLocation: '',
+                secondOffset: '',
+            });
+            const [results, setResults] = React.useState([]);
+            const [error, setError] = React.useState(null);
+            const [loading, setLoading] = React.useState(false);
+            const [reportLink, setReportLink] = React.useState(null);
+
+            const handleChange = (e) => {
+                const { name, value } = e.target;
+                setForm((prev) => ({ ...prev, [name]: value }));
+            };
+
+            const handleModuleChange = (e) => {
+                const { value, checked } = e.target;
+                setForm((prev) => {
+                    const mods = new Set(prev.modules);
+                    if (checked) mods.add(value); else mods.delete(value);
+                    return { ...prev, modules: Array.from(mods) };
+                });
+            };
+
+            const callModule = async (module, payload) => {
+                const base = 'http://localhost:8000';
+                const endpointMap = {
+                    'Personality': '/modules/personality',
+                    'Career': '/modules/career',
+                    'Education': '/modules/education',
+                    'Marriage': '/modules/marriage',
+                    'Sexuality': '/modules/sexuality',
+                    'Body type': '/modules/body_type',
+                    'Karma & Soul Path': '/modules/karma',
+                    'Foreign Travel': '/modules/foreign_travel',
+                    'Spirituality': '/modules/spirituality',
+                    'Ashtakavarga': '/modules/ashtakavarga',
+                    'Dasha/Transit': '/modules/dasha_transit',
+                    'Psychological Vulnerability': '/modules/psychological',
+                    'Health': '/modules/health',
+                    'Chronic Disease Indicators': '/modules/chronic',
+                    'Compatibility': '/modules/compatibility',
+                };
+                const url = base + endpointMap[module];
+                try {
+                    const res = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                    });
+                    if (!res.ok) throw new Error(await res.text());
+                    return res.json();
+                } catch (err) {
+                    throw err;
+                }
+            };
+
+            const handleSubmit = async () => {
+                setError(null);
+                setResults([]);
+                setReportLink(null);
+                // Validate
+                if (!form.name || !form.dob || !form.tob || !form.location || !form.offset || form.modules.length === 0) {
+                    setError('Please complete all mandatory fields and select at least one module.');
+                    return;
+                }
+                // Prepare payload for API
+                const payload = {
+                    name: form.name,
+                    birth_date: form.dob,
+                    birth_time: form.tob,
+                    location: form.location,
+                    utc_offset: parseFloat(form.offset),
+                    modules: form.modules,
+                };
+                if (form.modules.includes('Compatibility')) {
+                    // Add second person details
+                    if (!form.secondName || !form.secondDob || !form.secondTob || !form.secondLocation || !form.secondOffset) {
+                        setError('Please provide complete details for the second person.');
+                        return;
+                    }
+                    payload.second_name = form.secondName;
+                    payload.second_birth_date = form.secondDob;
+                    payload.second_birth_time = form.secondTob;
+                    payload.second_location = form.secondLocation;
+                    payload.second_utc_offset = parseFloat(form.secondOffset);
+                }
+                setLoading(true);
+                const newResults = [];
+                try {
+                    // Call each selected module
+                    for (const mod of form.modules) {
+                        const res = await callModule(mod, payload);
+                        newResults.push(res);
+                    }
+                    setResults(newResults);
+                } catch (err) {
+                    setError(String(err));
+                } finally {
+                    setLoading(false);
+                }
+            };
+
+            const handleExport = async (format) => {
+                setError(null);
+                setReportLink(null);
+                // Build payload similar to submit
+                const payload = {
+                    name: form.name,
+                    birth_date: form.dob,
+                    birth_time: form.tob,
+                    location: form.location,
+                    utc_offset: parseFloat(form.offset),
+                    modules: form.modules,
+                };
+                if (form.modules.includes('Compatibility')) {
+                    payload.second_name = form.secondName;
+                    payload.second_birth_date = form.secondDob;
+                    payload.second_birth_time = form.secondTob;
+                    payload.second_location = form.secondLocation;
+                    payload.second_utc_offset = parseFloat(form.secondOffset);
+                }
+                try {
+                    const res = await fetch('http://localhost:8000/analyze?format=' + format, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                    });
+                    if (!res.ok) throw new Error(await res.text());
+                    const data = await res.json();
+                    if (data.report_path) {
+                        setReportLink({ url: data.report_path, format });
+                    } else {
+                        setError('Report generation failed');
+                    }
+                } catch (err) {
+                    setError(String(err));
+                }
+            };
+
+            return (
+                <div className="max-w-4xl mx-auto bg-white shadow p-6 rounded">
+                    <h1 className="text-2xl font-bold mb-4">JyotishAI Diagnostics</h1>
+                    {error && <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{error}</div>}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-sm font-medium">Full Name</label>
+                            <input type="text" name="name" value={form.name} onChange={handleChange} className="mt-1 w-full border rounded p-2" />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Date of Birth</label>
+                            <input type="date" name="dob" value={form.dob} onChange={handleChange} className="mt-1 w-full border rounded p-2" />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Time of Birth</label>
+                            <input type="time" name="tob" value={form.tob} onChange={handleChange} className="mt-1 w-full border rounded p-2" />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">City & Country of Birth</label>
+                            <input type="text" name="location" value={form.location} onChange={handleChange} className="mt-1 w-full border rounded p-2" />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">UTC Offset</label>
+                            <input type="number" step="0.5" name="offset" value={form.offset} onChange={handleChange} className="mt-1 w-full border rounded p-2" />
+                        </div>
+                    </div>
+                    <div className="mt-4">
+                        <span className="block text-sm font-medium mb-2">Select Modules</span>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            {MODULE_OPTIONS.map((opt) => (
+                                <label key={opt.value} className="inline-flex items-center space-x-2">
+                                    <input
+                                        type="checkbox"
+                                        value={opt.value}
+                                        checked={form.modules.includes(opt.value)}
+                                        onChange={handleModuleChange}
+                                        className="form-checkbox"
+                                    />
+                                    <span>{opt.label}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+                    {form.modules.includes('Compatibility') && (
+                        <div className="mt-4 border-t pt-4">
+                            <h2 className="text-xl font-semibold mb-2">Second Person Details</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium">Full Name</label>
+                                    <input type="text" name="secondName" value={form.secondName} onChange={handleChange} className="mt-1 w-full border rounded p-2" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium">Date of Birth</label>
+                                    <input type="date" name="secondDob" value={form.secondDob} onChange={handleChange} className="mt-1 w-full border rounded p-2" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium">Time of Birth</label>
+                                    <input type="time" name="secondTob" value={form.secondTob} onChange={handleChange} className="mt-1 w-full border rounded p-2" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium">City & Country of Birth</label>
+                                    <input type="text" name="secondLocation" value={form.secondLocation} onChange={handleChange} className="mt-1 w-full border rounded p-2" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium">UTC Offset</label>
+                                    <input type="number" step="0.5" name="secondOffset" value={form.secondOffset} onChange={handleChange} className="mt-1 w-full border rounded p-2" />
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    <div className="mt-4 flex space-x-3">
+                        <button onClick={handleSubmit} className="px-4 py-2 bg-blue-600 text-white rounded" disabled={loading}>
+                            {loading ? 'Processing...' : 'Submit'}
+                        </button>
+                        {results.length > 0 && (
+                            <>
+                                <button onClick={() => handleExport('pdf')} className="px-4 py-2 bg-green-600 text-white rounded">Export PDF</button>
+                                <button onClick={() => handleExport('docx')} className="px-4 py-2 bg-yellow-600 text-white rounded">Export DOCX</button>
+                            </>
+                        )}
+                    </div>
+                    <div className="mt-6">
+                        {results.map((res, idx) => (
+                            <div key={idx} className="mb-4 p-4 border rounded bg-gray-100">
+                                <h3 className="text-lg font-semibold mb-1">{res.module}</h3>
+                                <p className="whitespace-pre-line text-sm">{res.analysis}</p>
+                            </div>
+                        ))}
+                        {reportLink && (
+                            <div className="mt-4">
+                                <a href={reportLink.url} className="text-blue-600 underline" download>
+                                    Download {reportLink.format.toUpperCase()} Report
+                                </a>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
