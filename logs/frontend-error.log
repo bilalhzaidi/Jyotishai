@@ -1,0 +1,28 @@
+2025-08-04 14:29:48: node:_http_server:344
+2025-08-04 14:29:48:     throw new ERR_HTTP_HEADERS_SENT('write');
+2025-08-04 14:29:48:     ^
+2025-08-04 14:29:48: 
+2025-08-04 14:29:48: Error [ERR_HTTP_HEADERS_SENT]: Cannot write headers after they are sent to the client
+2025-08-04 14:29:48:     at ServerResponse.writeHead (node:_http_server:344:11)
+2025-08-04 14:29:48:     at IncomingMessage.<anonymous> (/var/www/jyotishai-saas/server.js:71:15)
+2025-08-04 14:29:48:     at IncomingMessage.emit (node:events:524:28)
+2025-08-04 14:29:48:     at endReadableNT (node:internal/streams/readable:1698:12)
+2025-08-04 14:29:48:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+2025-08-04 14:29:48:   code: 'ERR_HTTP_HEADERS_SENT'
+2025-08-04 14:29:48: }
+2025-08-04 14:29:48: 
+2025-08-04 14:29:48: Node.js v20.19.3
+2025-08-04 14:30:26: node:_http_server:344
+2025-08-04 14:30:26:     throw new ERR_HTTP_HEADERS_SENT('write');
+2025-08-04 14:30:26:     ^
+2025-08-04 14:30:26: 
+2025-08-04 14:30:26: Error [ERR_HTTP_HEADERS_SENT]: Cannot write headers after they are sent to the client
+2025-08-04 14:30:26:     at ServerResponse.writeHead (node:_http_server:344:11)
+2025-08-04 14:30:26:     at IncomingMessage.<anonymous> (/var/www/jyotishai-saas/server.js:71:15)
+2025-08-04 14:30:26:     at IncomingMessage.emit (node:events:524:28)
+2025-08-04 14:30:26:     at endReadableNT (node:internal/streams/readable:1698:12)
+2025-08-04 14:30:26:     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+2025-08-04 14:30:26:   code: 'ERR_HTTP_HEADERS_SENT'
+2025-08-04 14:30:26: }
+2025-08-04 14:30:26: 
+2025-08-04 14:30:26: Node.js v20.19.3

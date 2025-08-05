@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jyotishai - Report Generator & Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        function App() {
+            const [currentView, setCurrentView] = React.useState('reports'); // 'reports' or 'chat'
+            
+            // Report Generator Component
+            const [reportForm, setReportForm] = React.useState({
+                name: '',
+                birthDate: '',
+                birthTime: '',
+                birthPlace: '',
+                reportType: 'comprehensive'
+            });
+            const [reportResult, setReportResult] = React.useState(null);
+            const [isGenerating, setIsGenerating] = React.useState(false);
+
+            // Chat Component
+            const [messages, setMessages] = React.useState([
+                { role: 'assistant', text: 'Hello! I\'m your AI astrology assistant. Ask me anything about your birth chart, planetary influences, or astrological guidance!' }
+            ]);
+            const [chatInput, setChatInput] = React.useState('');
+            const [isChatLoading, setIsChatLoading] = React.useState(false);
+
+            const handleReportSubmit = async (e) => {
+                e.preventDefault();
+                setIsGenerating(true);
+                setReportResult(null);
+
+                try {
+                    const response = await fetch('/api/reports/create', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(reportForm)
+                    });
+                    if (!response.ok) throw new Error('Failed to generate report');
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'Astrology_Report.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                    // setReportResult(null); // No need to show JSON result
+                } catch (error) {
+                    alert('Failed to generate report: ' + error.message);
+                } finally {
+                    setIsGenerating(false);
+                }
+            };
+
+            const handleChatSubmit = async (e) => {
+                e.preventDefault();
+                if (!chatInput.trim() || isChatLoading) return;
+
+                const userMessage = chatInput.trim();
+                setChatInput('');
+                setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
+                setIsChatLoading(true);
+
+                try {
+                    const response = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: userMessage })
+                    });
+
+                    const result = await response.json();
+                    setMessages(prev => [...prev, { 
+                        role: 'assistant', 
+                        text: result.reply || result.response || 'I apologize, but I couldn\'t generate a response.'
+                    }]);
+                } catch (error) {
+                    setMessages(prev => [...prev, { 
+                        role: 'assistant', 
+                        text: 'Sorry, I encountered an error. Please try again.'
+                    }]);
+                } finally {
+                    setIsChatLoading(false);
+                }
+            };
+
+            return (
+                <div className="min-h-screen bg-gray-50">
+                    {/* Header */}
+                    <header className="bg-white shadow-sm border-b">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-between items-center py-4">
+                                <div className="flex items-center">
+                                    <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                                        ✨ Jyotishai
+                                    </h1>
+                                </div>
+                                <nav className="flex space-x-4">
+                                    <button
+                                        onClick={() => setCurrentView('reports')}
+                                        className={`px-4 py-2 rounded-lg font-medium ${
+                                            currentView === 'reports' 
+                                                ? 'bg-purple-100 text-purple-700' 
+                                                : 'text-gray-600 hover:text-purple-600'
+                                        }`}
+                                    >
+                                        📊 Reports
+                                    </button>
+                                    <button
+                                        onClick={() => setCurrentView('chat')}
+                                        className={`px-4 py-2 rounded-lg font-medium ${
+                                            currentView === 'chat' 
+                                                ? 'bg-purple-100 text-purple-700' 
+                                                : 'text-gray-600 hover:text-purple-600'
+                                        }`}
+                                    >
+                                        💬 AI Chat
+                                    </button>
+                                </nav>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Main Content */}
+                    <main className="max-w-4xl mx-auto py-8 px-4">
+                        {currentView === 'reports' ? (
+                            <div>
+                                {/* Report Generator Form */}
+                                <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+                                    <h2 className="text-2xl font-bold text-gray-900 mb-6">📊 Generate New Report</h2>
+                                    
+                                    <form onSubmit={handleReportSubmit} className="space-y-4">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                                <input
+                                                    type="text"
+                                                    value={reportForm.name}
+                                                    onChange={(e) => setReportForm({...reportForm, name: e.target.value})}
+                                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-1">Report Type</label>
+                                                <select
+                                                    value={reportForm.reportType}
+                                                    onChange={(e) => setReportForm({...reportForm, reportType: e.target.value})}
+                                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                                >
+                                                    <option value="personality">Personality Analysis</option>
+                                                    <option value="career">Career Guidance</option>
+                                                    <option value="love">Love & Relationships</option>
+                                                    <option value="health">Health Predictions</option>
+                                                    <option value="finance">Financial Forecast</option>
+                                                    <option value="comprehensive">Comprehensive Report</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-1">Birth Date</label>
+                                                <input
+                                                    type="date"
+                                                    value={reportForm.birthDate}
+                                                    onChange={(e) => setReportForm({...reportForm, birthDate: e.target.value})}
+                                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-1">Birth Time</label>
+                                                <input
+                                                    type="time"
+                                                    value={reportForm.birthTime}
+                                                    onChange={(e) => setReportForm({...reportForm, birthTime: e.target.value})}
+                                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="md:col-span-2">
+                                                <label className="block text-sm font-medium text-gray-700 mb-1">Birth Place</label>
+                                                <input
+                                                    type="text"
+                                                    value={reportForm.birthPlace}
+                                                    onChange={(e) => setReportForm({...reportForm, birthPlace: e.target.value})}
+                                                    placeholder="City, State/Province, Country"
+                                                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        
+                                        <button
+                                            type="submit"
+                                            disabled={isGenerating}
+                                            className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:from-purple-700 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                        >
+                                            {isGenerating ? '⏳ Generating Report...' : '✨ Generate Report'}
+                                        </button>
+                                    </form>
+                                </div>
+
+                                {/* Report Results */}
+                                {reportResult && (
+                                    <div className="bg-white rounded-lg shadow-md p-6">
+                                        <div className="flex items-center mb-6">
+                                            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                                <span className="text-2xl">✅</span>
+                                            </div>
+                                            <div>
+                                                <h3 className="text-xl font-bold text-green-800">Report Generated Successfully!</h3>
+                                                <p className="text-sm text-gray-600">Report ID: {reportResult.reportId}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                            <div className="bg-gray-50 p-4 rounded-lg">
+                                                <h4 className="font-semibold text-gray-900 mb-3">Personal Details</h4>
+                                                <div className="space-y-2 text-sm">
+                                                    <p><strong>Name:</strong> {reportResult.name}</p>
+                                                    <p><strong>Birth Date:</strong> {reportResult.birthDate}</p>
+                                                    <p><strong>Birth Time:</strong> {reportResult.birthTime}</p>
+                                                    <p><strong>Birth Place:</strong> {reportResult.birthPlace}</p>
+                                                    <p><strong>Report Type:</strong> <span className="capitalize">{reportResult.reportType}</span></p>
+                                                </div>
+                                            </div>
+                                            <div className="bg-gray-50 p-4 rounded-lg">
+                                                <h4 className="font-semibold text-gray-900 mb-3">Report Information</h4>
+                                                <div className="space-y-2 text-sm">
+                                                    <p><strong>Generated:</strong> {new Date(reportResult.generatedAt).toLocaleString()}</p>
+                                                    <p><strong>Status:</strong> <span className="text-green-600 capitalize">{reportResult.status}</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-blue-50 p-6 rounded-lg">
+                                            <h4 className="font-semibold text-gray-900 mb-3">🔮 Your Astrological Analysis</h4>
+                                            <p className="text-gray-700 leading-relaxed">{reportResult.analysis}</p>
+                                        </div>
+
+                                        <div className="flex gap-4 mt-6">
+                                            <button
+                                                onClick={() => setReportResult(null)}
+                                                className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                                            >
+                                                Generate Another Report
+                                            </button>
+                                            <button
+                                                onClick={() => setCurrentView('chat')}
+                                                className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all"
+                                            >
+                                                Ask AI About This Report
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            /* Chat Interface */
+                            <div className="bg-white rounded-lg shadow-md h-[600px] flex flex-col">
+                                <div className="p-6 border-b">
+                                    <h2 className="text-2xl font-bold text-gray-900">💬 AI Astrology Assistant</h2>
+                                    <p className="text-gray-600 mt-1">Get instant insights and guidance</p>
+                                </div>
+                                
+                                <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                                    {messages.map((message, index) => (
+                                        <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                                            <div className={`flex items-start space-x-2 max-w-[80%] ${message.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
+                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                                                    message.role === 'user' ? 'bg-blue-100' : 'bg-purple-100'
+                                                }`}>
+                                                    {message.role === 'user' ? '👤' : '🔮'}
+                                                </div>
+                                                <div className={`p-3 rounded-lg ${
+                                                    message.role === 'user' 
+                                                        ? 'bg-blue-600 text-white' 
+                                                        : 'bg-gray-100 text-gray-900'
+                                                }`}>
+                                                    <p className="text-sm whitespace-pre-wrap">{message.text}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                    
+                                    {isChatLoading && (
+                                        <div className="flex justify-start">
+                                            <div className="flex items-start space-x-2">
+                                                <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">🔮</div>
+                                                <div className="bg-gray-100 p-3 rounded-lg">
+                                                    <div className="flex space-x-1">
+                                                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                                                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                                                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                                
+                                <form onSubmit={handleChatSubmit} className="p-4 border-t">
+                                    <div className="flex space-x-2">
+                                        <input
+                                            type="text"
+                                            value={chatInput}
+                                            onChange={(e) => setChatInput(e.target.value)}
+                                            placeholder="Ask me anything about astrology..."
+                                            disabled={isChatLoading}
+                                            className="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                        />
+                                        <button
+                                            type="submit"
+                                            disabled={!chatInput.trim() || isChatLoading}
+                                            className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                        >
+                                            Send
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        )}
+                    </main>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+2025-08-04 04:30:49: Jyotishai temporary server running on port 3001
+2025-08-04 05:15:49: Jyotishai temporary server running on port 3001
+2025-08-04 05:22:34: Jyotishai server running on port 3001
+2025-08-04 05:22:34: API endpoints available at /api/status and /api/features
+2025-08-04 06:55:55: Jyotishai server running on port 3001
+2025-08-04 06:55:55: API endpoints available at /api/status and /api/features
+2025-08-04 06:59:37: Jyotishai server running on port 3001
+2025-08-04 06:59:37: API endpoints available at /api/status and /api/features
+2025-08-04 07:06:48: Jyotishai server running on port 3001
+2025-08-04 07:06:48: API endpoints available at /api/status and /api/features
+2025-08-04 07:12:50: Jyotishai server running on port 3001
+2025-08-04 07:12:50: API endpoints available at /api/status and /api/features
+2025-08-04 07:21:57: Jyotishai server running on port 3001
+2025-08-04 07:21:57: API endpoints available at /api/status and /api/features
+2025-08-04 08:00:53: Jyotishai server running on port 3001
+2025-08-04 08:00:53: API endpoints available at /api/status and /api/features
+2025-08-04 08:22:49: Jyotishai server running on port 3001
+2025-08-04 08:22:49: API endpoints available at /api/status and /api/features
+2025-08-04 08:30:26: Jyotishai server running on port 3001
+2025-08-04 08:30:26: API endpoints available at /api/status and /api/features
+2025-08-04 14:20:32: Jyotishai server running on port 3001
+2025-08-04 14:20:32: API endpoints available at /api/status and /api/features
+2025-08-04 14:29:28: Jyotishai server running on port 3001
+2025-08-04 14:29:28: API endpoints available at /api/status and /api/features
+2025-08-04 14:29:47: Report creation request: { name: 'Test', reportType: 'personality' }
+2025-08-04 14:29:50: Jyotishai server running on port 3001
+2025-08-04 14:29:50: API endpoints available at /api/status and /api/features
+2025-08-04 14:30:26: Report creation request: {
+2025-08-04 14:30:26:   name: 'Test User',
+2025-08-04 14:30:26:   reportType: 'personality',
+2025-08-04 14:30:26:   birthDate: '2000-01-01',
+2025-08-04 14:30:26:   birthTime: '10:00',
+2025-08-04 14:30:26:   birthPlace: 'New York'
+2025-08-04 14:30:26: }
+2025-08-04 14:30:28: Jyotishai server running on port 3001
+2025-08-04 14:30:28: API endpoints available at /api/status and /api/features
+2025-08-04 14:31:36: Jyotishai server running on port 3001
+2025-08-04 14:31:36: API endpoints available at /api/status and /api/features
+2025-08-04 14:33:04: Jyotishai server running on port 3001
+2025-08-04 14:33:04: API endpoints available at /api/status and /api/features

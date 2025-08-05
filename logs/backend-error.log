@@ -1,0 +1,309 @@
+2025-08-03 23:09:11: Traceback (most recent call last):
+2025-08-03 23:09:11:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:09:11:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:09:11:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:09:11:     from flatlib.chart import Chart
+2025-08-03 23:09:11: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:09:35: Traceback (most recent call last):
+2025-08-03 23:09:35:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:09:35:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:09:35:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:09:35:     from flatlib.chart import Chart
+2025-08-03 23:09:35: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:09:55: Traceback (most recent call last):
+2025-08-03 23:09:55:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:09:55:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:09:55:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:09:55:     from flatlib.chart import Chart
+2025-08-03 23:09:55: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:10:20: Traceback (most recent call last):
+2025-08-03 23:10:20:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:10:20:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:10:20:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:10:20:     from flatlib.chart import Chart
+2025-08-03 23:10:20: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:10:44: Traceback (most recent call last):
+2025-08-03 23:10:44:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:10:44:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:10:44:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:10:44:     from flatlib.chart import Chart
+2025-08-03 23:10:44: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:11:09: Traceback (most recent call last):
+2025-08-03 23:11:10:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:11:10:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:11:10:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:11:10:     from flatlib.chart import Chart
+2025-08-03 23:11:10: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:11:32: Traceback (most recent call last):
+2025-08-03 23:11:32:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:11:32:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:11:32:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:11:32:     from flatlib.chart import Chart
+2025-08-03 23:11:32: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:11:55: Traceback (most recent call last):
+2025-08-03 23:11:55:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:11:55:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:11:55:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:11:55:     from flatlib.chart import Chart
+2025-08-03 23:11:55: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:12:21: Traceback (most recent call last):
+2025-08-03 23:12:21:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:12:21:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:12:21:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:12:21:     from flatlib.chart import Chart
+2025-08-03 23:12:21: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:12:44: Traceback (most recent call last):
+2025-08-03 23:12:44:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:12:44:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:12:44:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:12:44:     from flatlib.chart import Chart
+2025-08-03 23:12:44: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:13:02: Traceback (most recent call last):
+2025-08-03 23:13:02:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:13:02:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:13:02:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:13:02:     from flatlib.chart import Chart
+2025-08-03 23:13:02: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:13:15: Traceback (most recent call last):
+2025-08-03 23:13:15:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:13:15:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:13:15:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:13:15:     from flatlib.chart import Chart
+2025-08-03 23:13:15: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:13:26: Traceback (most recent call last):
+2025-08-03 23:13:26:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:13:26:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:13:26:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:13:26:     from flatlib.chart import Chart
+2025-08-03 23:13:26: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:13:38: Traceback (most recent call last):
+2025-08-03 23:13:38:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:13:38:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:13:38:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:13:38:     from flatlib.chart import Chart
+2025-08-03 23:13:38: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:13:52: Traceback (most recent call last):
+2025-08-03 23:13:52:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:13:52:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:13:52:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:13:52:     from flatlib.chart import Chart
+2025-08-03 23:13:52: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:14:05: Traceback (most recent call last):
+2025-08-03 23:14:05:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:14:05:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:14:05:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:14:05:     from flatlib.chart import Chart
+2025-08-03 23:14:05: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:14:17: Traceback (most recent call last):
+2025-08-03 23:14:17:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:14:17:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:14:17:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:14:17:     from flatlib.chart import Chart
+2025-08-03 23:14:17: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:14:28: Traceback (most recent call last):
+2025-08-03 23:14:28:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:14:28:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:14:28:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:14:28:     from flatlib.chart import Chart
+2025-08-03 23:14:28: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:14:36: Traceback (most recent call last):
+2025-08-03 23:14:36:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:14:36:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:14:36:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:14:36:     from flatlib.chart import Chart
+2025-08-03 23:14:36: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:14:57: Traceback (most recent call last):
+2025-08-03 23:14:57:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:14:57:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:14:57:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:14:57:     from flatlib.chart import Chart
+2025-08-03 23:14:57: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:15:20: Traceback (most recent call last):
+2025-08-03 23:15:20:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:15:20:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:15:20:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:15:20:     from flatlib.chart import Chart
+2025-08-03 23:15:20: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:15:42: Traceback (most recent call last):
+2025-08-03 23:15:42:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:15:42:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:15:42:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:15:42:     from flatlib.chart import Chart
+2025-08-03 23:15:42: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:16:02: Traceback (most recent call last):
+2025-08-03 23:16:02:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:16:02:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:16:02:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:16:02:     from flatlib.chart import Chart
+2025-08-03 23:16:02: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:16:21: Traceback (most recent call last):
+2025-08-03 23:16:21:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:16:21:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:16:21:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:16:21:     from flatlib.chart import Chart
+2025-08-03 23:16:21: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:16:44: Traceback (most recent call last):
+2025-08-03 23:16:44:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:16:44:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:16:44:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:16:44:     from flatlib.chart import Chart
+2025-08-03 23:16:44: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:17:07: Traceback (most recent call last):
+2025-08-03 23:17:07:   File "/root/jyotishai-saas/main.py", line 19, in <module>
+2025-08-03 23:17:07:     from services.chart_engine import VedicAstrologyEngine
+2025-08-03 23:17:07:   File "/root/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-03 23:17:07:     from flatlib.chart import Chart
+2025-08-03 23:17:07: ModuleNotFoundError: No module named 'flatlib'
+2025-08-03 23:17:23: Traceback (most recent call last):
+2025-08-03 23:17:23:   File "/root/jyotishai-saas/main.py", line 10, in <module>
+2025-08-03 23:17:23:     from fastapi import FastAPI, HTTPException, Query
+2025-08-03 23:17:23:   File "/root/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/__init__.py", line 7, in <module>
+2025-08-03 23:17:23:     from .applications import FastAPI as FastAPI
+2025-08-03 23:17:23:   File "/root/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/applications.py", line 16, in <module>
+2025-08-03 23:17:23:     from fastapi import routing
+2025-08-03 23:17:23:   File "/root/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/routing.py", line 25, in <module>
+2025-08-03 23:17:23:     from fastapi import params
+2025-08-03 23:17:23:   File "/root/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/params.py", line 5, in <module>
+2025-08-03 23:17:23:     from fastapi.openapi.models import Example
+2025-08-03 23:17:23:   File "/root/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/openapi/models.py", line 4, in <module>
+2025-08-03 23:17:23:     from fastapi._compat import (
+2025-08-03 23:17:23:   File "/root/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/_compat.py", line 52, in <module>
+2025-08-03 23:17:23:     from pydantic import PydanticSchemaGenerationError as PydanticSchemaGenerationError
+2025-08-03 23:17:23:   File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
+2025-08-03 23:17:23:   File "/root/jyotishai-saas/venv/lib/python3.12/site-packages/pydantic/__init__.py", line 439, in __getattr__
+2025-08-03 23:17:23:     if v_module_name == module_name and k not in _deprecated_dynamic_imports:
+2025-08-03 23:17:23:        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-03 23:17:23: KeyboardInterrupt
+2025-08-04 01:48:10: Traceback (most recent call last):
+2025-08-04 01:48:10:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:48:10:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:48:10:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:48:10:     from flatlib.chart import Chart
+2025-08-04 01:48:10: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:48:33: Traceback (most recent call last):
+2025-08-04 01:48:33:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:48:33:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:48:33:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:48:33:     from flatlib.chart import Chart
+2025-08-04 01:48:33: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:48:56: Traceback (most recent call last):
+2025-08-04 01:48:56:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:48:56:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:48:56:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:48:56:     from flatlib.chart import Chart
+2025-08-04 01:48:56: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:49:20: Traceback (most recent call last):
+2025-08-04 01:49:20:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:49:20:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:49:20:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:49:20:     from flatlib.chart import Chart
+2025-08-04 01:49:20: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:49:45: Traceback (most recent call last):
+2025-08-04 01:49:46:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:49:46:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:49:46:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:49:46:     from flatlib.chart import Chart
+2025-08-04 01:49:46: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:50:12: Traceback (most recent call last):
+2025-08-04 01:50:12:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:50:12:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:50:12:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:50:12:     from flatlib.chart import Chart
+2025-08-04 01:50:12: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:50:38: Traceback (most recent call last):
+2025-08-04 01:50:38:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:50:38:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:50:38:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:50:38:     from flatlib.chart import Chart
+2025-08-04 01:50:38: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:51:02: Traceback (most recent call last):
+2025-08-04 01:51:02:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:51:02:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:51:02:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:51:02:     from flatlib.chart import Chart
+2025-08-04 01:51:02: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:51:30: Traceback (most recent call last):
+2025-08-04 01:51:30:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:51:30:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:51:30:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:51:30:     from flatlib.chart import Chart
+2025-08-04 01:51:30: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:51:51: Traceback (most recent call last):
+2025-08-04 01:51:51:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:51:51:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:51:51:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:51:51:     from flatlib.chart import Chart
+2025-08-04 01:51:51: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:52:14: Traceback (most recent call last):
+2025-08-04 01:52:14:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:52:14:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:52:14:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:52:14:     from flatlib.chart import Chart
+2025-08-04 01:52:14: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:52:30: Traceback (most recent call last):
+2025-08-04 01:52:30:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:52:30:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:52:30:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:52:30:     from flatlib.chart import Chart
+2025-08-04 01:52:30: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:52:45: Traceback (most recent call last):
+2025-08-04 01:52:45:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:52:45:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:52:45:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:52:45:     from flatlib.chart import Chart
+2025-08-04 01:52:45: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:53:00: Traceback (most recent call last):
+2025-08-04 01:53:00:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:53:00:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:53:00:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:53:00:     from flatlib.chart import Chart
+2025-08-04 01:53:00: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:53:14: Traceback (most recent call last):
+2025-08-04 01:53:14:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:53:14:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:53:14:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:53:14:     from flatlib.chart import Chart
+2025-08-04 01:53:14: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:53:30: Traceback (most recent call last):
+2025-08-04 01:53:30:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:53:30:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:53:30:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:53:30:     from flatlib.chart import Chart
+2025-08-04 01:53:30: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:53:45: Traceback (most recent call last):
+2025-08-04 01:53:45:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:53:45:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:53:45:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:53:45:     from flatlib.chart import Chart
+2025-08-04 01:53:45: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:53:59: Traceback (most recent call last):
+2025-08-04 01:53:59:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:53:59:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:53:59:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:53:59:     from flatlib.chart import Chart
+2025-08-04 01:53:59: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:54:16: Traceback (most recent call last):
+2025-08-04 01:54:16:   File "/var/www/jyotishai-saas/main.py", line 19, in <module>
+2025-08-04 01:54:16:     from services.chart_engine import VedicAstrologyEngine
+2025-08-04 01:54:16:   File "/var/www/jyotishai-saas/services/chart_engine.py", line 1, in <module>
+2025-08-04 01:54:16:     from flatlib.chart import Chart
+2025-08-04 01:54:16: ModuleNotFoundError: No module named 'flatlib'
+2025-08-04 01:54:33: Traceback (most recent call last):
+2025-08-04 01:54:33:   File "/var/www/jyotishai-saas/main.py", line 10, in <module>
+2025-08-04 01:54:33:     from fastapi import FastAPI, HTTPException, Query
+2025-08-04 01:54:33:   File "/var/www/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/__init__.py", line 7, in <module>
+2025-08-04 01:54:33:     from .applications import FastAPI as FastAPI
+2025-08-04 01:54:33:   File "/var/www/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/applications.py", line 16, in <module>
+2025-08-04 01:54:33:     from fastapi import routing
+2025-08-04 01:54:33:   File "/var/www/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/routing.py", line 25, in <module>
+2025-08-04 01:54:33:     from fastapi import params
+2025-08-04 01:54:33:   File "/var/www/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/params.py", line 5, in <module>
+2025-08-04 01:54:33:     from fastapi.openapi.models import Example
+2025-08-04 01:54:33:   File "/var/www/jyotishai-saas/venv/lib/python3.12/site-packages/fastapi/openapi/models.py", line 273, in <module>
+2025-08-04 01:54:33:     class Header(ParameterBase):
+2025-08-04 01:54:33:   File "/var/www/jyotishai-saas/venv/lib/python3.12/site-packages/pydantic/_internal/_model_construction.py", line 237, in __new__
+2025-08-04 01:54:33:     complete_model_class(
+2025-08-04 01:54:33:   File "/var/www/jyotishai-saas/venv/lib/python3.12/site-packages/pydantic/_internal/_model_construction.py", line 562, in complete_model_class
+2025-08-04 01:54:33:     def complete_model_class(
+2025-08-04 01:54:33:     
+2025-08-04 01:54:33: KeyboardInterrupt
